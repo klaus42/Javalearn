@@ -27,34 +27,78 @@ public class MyMatrix implements Iterable<Integer> {
             linearArray = new Integer[matrix.length * matrix.length];
 
             int directionX = 1;
-            int directiony = 1;
+            int directiony = 0;
+            int distX = matrix.length;
+            int distY = matrix.length - 1;
 
+            int startX = 0;
+            int startY = 0;
 
-            for (int i = 0; i < matrix.length * matrix.length; i++) {
-                if ((i + 1) / 2 <= matrix.length / 2) {
-                    directionX = 1;
-                } else {
-                    directionX = -1;
+            int idx = 0;
+
+            while (idx < matrix.length * matrix.length) {
+                for (int i = startX; i < startX+ distX; i++) {
+                    linearArray[idx] = matrix[startY][i];
+                    idx++;
                 }
 
-//                if ()
+                distX--;
+                startX = startX+distX;
 
-//                for (int j = 0; j < matrix.length; i++) {
-//                    if (i / 2 <= matrix.length / 2) {
-//                        direction = 1;
-//                    } else {
-//                        direction = -1;
-//                    }
-//
-//                }
+                startY++;
+
+                for (int i = startY; i < startY+distY; i++) {
+                    linearArray[idx] = matrix[i][startX];
+                    idx++;
+                }
+
+                startX--;
+                distY--;
+                startY = startY+ distY;
+
+
+
+                for (int i = startX; i > startX - distX; i--) {
+                    linearArray[idx] = matrix[startY][i];
+                    idx++;
+                }
+
+                startX = startX - distX+1;
+                startY--;
+
+
+                for (int i = startY; i > startY - distY; i--) {
+                    linearArray[idx] = matrix[i][startX];
+                    idx++;
+                }
+
+                startX++;
+                startY = startY - distY+1;
+                distY--;
+                distX--;
 
             }
+
+
+//            for (int i = 0; i < matrix.length * matrix.length; i++) {
+//                if ((i + 1) / 2 <= matrix.length / 2) {
+//                    directionX = 1;
+//                } else {
+//                    directionX = -1;
+//                }
+//
+//                if ((i + 1) % matrix.length == 0) {
+//                    directionX = 0;
+//                }
+//
+//
+//            }
         }
 
 
         @Override
         public boolean hasNext() {
-            return idx < matrix.length;
+            return idx < matrix.length * matrix.length;
         }
 
         @Override
