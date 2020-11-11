@@ -2,62 +2,108 @@ package com.javalearn.homework.iterators;
 
 import java.util.Iterator;
 
-public class MyInteger implements Iterable<Integer>{
+public class MyInteger implements Iterable<Integer> {
 
-    private Integer[] numberSequence;
+    private Integer value;
+
+    private Integer iteratorDirection = 1;
+
+    private int digitsCount;
+
 
     public MyInteger() {
     }
 
-    public MyInteger(Integer[] numberSequence) {
-        this.numberSequence = numberSequence;
+    public MyInteger(Integer value) {
+        this.value = value;
+        digitsCount = getCountsOfDigits(value);
     }
 
-    public Integer[] getNumberSequence() {
-        return numberSequence;
+    public Integer getValue() {
+        return value;
     }
 
-    public void setNumberSequence(Integer[] numberSequence) {
-        this.numberSequence = numberSequence;
+    public void setValue(Integer value) {
+        this.value = value;
+        digitsCount = getCountsOfDigits(value);
+    }
+
+
+    public void setIteratorDirection(Integer iteratorDirection) {
+        this.iteratorDirection = iteratorDirection;
     }
 
     @Override
     public Iterator<Integer> iterator() {
-        return new DigitalIterator(this.numberSequence);
+
+        if (iteratorDirection == 1) {
+            return new ReverseDiditIterator();
+        }
+        return new ForwardDiditIterator();
     }
 
 
-    private class DigitalIterator implements Iterator<Integer> {
+    private class ReverseDiditIterator implements Iterator<Integer> {
 
-        Integer[] sortedSequence;
-        int idx;
-
-        public DigitalIterator(Integer[] numberSequence) {
-            sortedSequence = bubbleSort(numberSequence);
-        }
+        private int idx;
+        private Integer tmpValue;
 
         @Override
         public boolean hasNext() {
-            return (idx<sortedSequence.length);
+            return idx < digitsCount;
         }
 
         @Override
         public Integer next() {
-            return sortedSequence[idx++];
-        }
+            Integer result;
 
-        Integer[] bubbleSort(Integer[] arr) {
-            int n = arr.length;
-            for (int i = 0; i < n-1; i++)
-                for (int j = 0; j < n-i-1; j++)
-                    if (arr[j] > arr[j+1]) {
-                        int temp = arr[j];
-                        arr[j] = arr[j+1];
-                        arr[j+1] = temp;
-                    }
-            return arr;
-        }
+            if (tmpValue == null) {
+                tmpValue = value;
+            }
 
+            result = tmpValue % 10;
+            tmpValue /= 10;
+            idx++;
+            return result;
+        }
     }
+
+    private class ForwardDiditIterator implements Iterator<Integer> {
+
+        private int idx;
+        private Integer tmpValue;
+
+
+        @Override
+        public boolean hasNext() {
+            return idx < digitsCount;
+        }
+
+        @Override
+        public Integer next() {
+            idx++;
+            return (int) getSymbol(value, idx - 1);
+        }
+    }
+
+    private int getCountsOfDigits(long number) {
+        return (number < 10 ? 1 : 1 + getCountsOfDigits(number / 10));
+    }
+
+    public long tenPower(long power) {
+        return (power < 1 ? 1 : 10 * tenPower(power - 1));
+    }
+
+    public long getSymbol(long number, long k) {
+        int cnt = 0;
+        long dist = digitsCount - k;
+        while (cnt < dist - 1) {
+            number = number / 10;
+            cnt++;
+        }
+        return number % 10;
+    }
+
+
 }
 
