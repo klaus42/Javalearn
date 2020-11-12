@@ -27,11 +27,13 @@ public class MyNumberComparatorExample {
 //        System.out.println(simpleDividers);
         //ArrayList<MyNumber> numarray = new ArrayList<>();
 
+        boolean result;
+
         TreeSet<MyNumber> mynums = new TreeSet<>();
-        mynums.add(new MyNumber(1234));
-        mynums.add(new MyNumber(11111111));
-        mynums.add(new MyNumber(44778855));
-        mynums.add(new MyNumber(999));
+        result = mynums.add(new MyNumber(1234));
+        result = mynums.add(new MyNumber(11111111));
+        result = mynums.add(new MyNumber(44778855));
+        result =  mynums.add(new MyNumber(999));
 
         for (MyNumber i : mynums) {
             System.out.println(i.getValue());
