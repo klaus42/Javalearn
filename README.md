@@ -18,3 +18,7 @@
 ## Домашняя работа №7<br/>
 [Зоопарк](src/com/zoo)<br/>
 [Балда](src/com/javalearn/homework/Balda.java)<br/>
+## Домашняя работа №8<br/>
+[Обратная польская запись выражения - пока без вычисления](src/com/javalearn/homework/Opn.java)<br/>
+[Последовательность целых чисел с итератором по цифрам десятичного представления чисел](src/com/javalearn/homework/iterators)<br/>
+[Класс матриц с итератором, проходящим матрицу в спиральном порядке](src/com/javalearn/homework/iterators)<br/>
