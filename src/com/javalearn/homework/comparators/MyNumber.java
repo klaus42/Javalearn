@@ -23,7 +23,19 @@ public class MyNumber implements Comparable<MyNumber> {
 
     @Override
     public int compareTo(MyNumber num) {
-        return getSimpleDividersCount(num.value) - getSimpleDividersCount(this.value);
+
+        int delta = getSimpleDividersCount(num.value) - getSimpleDividersCount(this.value);
+
+        if (delta == 0) {
+            if (num.value > this.value) {
+                return 1;
+            }
+            if (num.value < this.value) {
+                return -1;
+            }
+        }
+
+        return delta;
     }
 
     private int getSimpleDividersCount(int x) {
