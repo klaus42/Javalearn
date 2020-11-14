@@ -10,3 +10,11 @@
 [Проверка слово на палиндромность](src/com/javalearn/homework/Palindrome.java)<br/>
 [Убираем одинаковые значения из списка](src/com/javalearn/homework/UniqArray.java)<br/>
 [Фнкция, которая переворачивает массив](src/com/javalearn/homework/SwapArray.java)<br/>
+## Домашняя работа №4<br/>
+[Зоопарк](src/com/zoo)<br/>
+[Фибоначчиевая система исчисления](src/com/javalearn/homework/Fibonacci.java)<br/>
+## Домашняя работа №5,6<br/>
+[Зоопарк](src/com/zoo)<br/>
+## Домашняя работа №7<br/>
+[Зоопарк](src/com/zoo)<br/>
+[Балда](src/com/javalearn/homework/Balda.java)<br/>
