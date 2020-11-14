@@ -26,8 +26,6 @@ public class MyMatrix implements Iterable<Integer> {
         public SpiralArrayIterator(Integer[][] matrix) {
             linearArray = new Integer[matrix.length * matrix.length];
 
-            int directionX = 1;
-            int directiony = 0;
             int distX = matrix.length;
             int distY = matrix.length - 1;
 
@@ -79,20 +77,6 @@ public class MyMatrix implements Iterable<Integer> {
 
             }
 
-
-//            for (int i = 0; i < matrix.length * matrix.length; i++) {
-//                if ((i + 1) / 2 <= matrix.length / 2) {
-//                    directionX = 1;
-//                } else {
-//                    directionX = -1;
-//                }
-//
-//                if ((i + 1) % matrix.length == 0) {
-//                    directionX = 0;
-//                }
-//
-//
-//            }
         }
 
 
