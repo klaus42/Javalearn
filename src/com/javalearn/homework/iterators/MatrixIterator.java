@@ -15,7 +15,6 @@ public class MatrixIterator {
         for (Integer num : matrix
         ) {
             System.out.println(num);
-
         }
     }
 }

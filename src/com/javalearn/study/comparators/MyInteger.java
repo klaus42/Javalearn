@@ -38,7 +38,6 @@ public class MyInteger implements Comparable<MyInteger> {
             numsum += getLastNumber(nextNum);
             nextNum = nextNum /10;
         }
-
         return numsum;
     }
 
