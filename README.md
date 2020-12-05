@@ -9,7 +9,7 @@
 ## Домашняя работа №3<br/>
 [Проверка слово на палиндромность](src/com/javalearn/homework/Palindrome.java)<br/>
 [Убираем одинаковые значения из списка](src/com/javalearn/homework/UniqArray.java)<br/>
-[Фнкция, которая переворачивает массив](src/com/javalearn/homework/SwapArray.java)<br/>
+[Функция, которая переворачивает массив](src/com/javalearn/homework/SwapArray.java)<br/>
 ## Домашняя работа №4<br/>
 [Зоопарк](src/com/zoo)<br/>
 [Фибоначчиевая система исчисления](src/com/javalearn/homework/Fibonacci.java)<br/>
