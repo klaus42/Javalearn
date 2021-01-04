@@ -2,6 +2,7 @@ package com.javalearn.homework.consoleutilites;
 
 import java.io.File;
 import java.io.FileFilter;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -9,6 +10,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+//При запуске на винде нужно использовать параметр
+//-Dfile.encoding=cp866
+
 
 public class Tree {
 
@@ -43,7 +48,7 @@ public class Tree {
         dir = new File(folder);
 
         if (dir.isDirectory() == false) {
-            if (folder.length()!=0) {
+            if (folder.length() != 0) {
                 System.out.println("\"" + folder + "\" не является директорией");
                 System.out.println("Выводим содержимое текущей директории");
             }
@@ -54,11 +59,6 @@ public class Tree {
 
             dir = new File(absolutePath);
         }
-
-        for (String arg : args) {
-
-        }
-
 
         System.out.println(dir.getAbsolutePath());
 
@@ -99,7 +99,6 @@ public class Tree {
                 idx++;
                 levels.forEach(System.out::print);
                 if (showSize) System.out.print("[" + f.length() + "]");
-
                 System.out.println(f.getName());
                 if (f.isDirectory()) {
 //                    levels.forEach(System.out::print);
