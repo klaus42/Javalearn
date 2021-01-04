@@ -27,3 +27,6 @@
 [Подсчет количества элементов в коллекции, которые имеют определенное свойство](src/com/javalearn/homework/generics)
 ## Консольные утилиты<br/>
 [Tree](src/com/javalearn/homework/consoleutilites/Tree.java)<br/>
+[Grep](src/com/javalearn/homework/consoleutilites/Grep.java)<br/>
+[Wc](src/com/javalearn/homework/consoleutilites/Wc.java)<br/>
+
