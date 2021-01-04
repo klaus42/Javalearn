@@ -1,0 +1,71 @@
+{
+  "values": [
+    "a",
+    "bbb",
+    "ccc"
+  ],
+  "department": {
+    "head": {
+      "name": "Steve",
+      "age": 43,
+      "phone": "123-456-789"
+    },
+    "emploeyes": [
+      {
+        "name": "Max",
+        "post": "manager",
+        "phone": 56789
+      },
+      {
+        "name": "Rebecca",
+        "post": "assistant",
+        "phone": 123456
+      }
+    ],
+    "title": "Post office",
+    "subdepatments": [
+      {
+        "name": "filialOne",
+        "address": "Lenina street, 24",
+        "head": {
+          "name": "Steve",
+          "age": 43,
+          "phone": "123-456-789"
+        },
+        "emploeyes": [
+          {
+            "name": "Max",
+            "post": "manager",
+            "phone": 56789
+          },
+          {
+            "name": "Rebecca",
+            "post": "assistant",
+            "phone": 123456
+          }
+        ]
+      },
+      {
+        "name": "filialTwo",
+        "address": "Ploshyad sovetov, 1",
+        "head": {
+          "name": "Steve",
+          "age": 43,
+          "phone": "123-456-789"
+        },
+        "emploeyes": [
+          {
+            "name": "Max",
+            "post": "manager",
+            "phone": 56789
+          },
+          {
+            "name": "Rebecca",
+            "post": "assistant",
+            "phone": 123456
+          }
+        ]
+      }
+    ]
+  }
+}
