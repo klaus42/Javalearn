@@ -46,79 +46,26 @@ public class Tree {
         if (subFiles != null)
             for (File f : subFiles) {
 
-//            Stream.generate(() -> "│  ").limit(level).forEach(System.out::print);
-//
-
-//                if (idx == 0 && subFiles.length == 1) {
-//                    System.out.print("└");
-//                }
-
                 if (idx < subFiles.length - 1) {
-//                System.out.print("├");
                     levels.set(level, "├--");
                 }
 
                 if (idx == subFiles.length - 1) {
                     levels.set(level, "└--");
-//                System.out.print("└");
-                    //levels.set(level,"   ");
                 }
+
                 levels.forEach(System.out::print);
-
-
-//            levels.set(level,"");
                 idx++;
 
                 if (f.isDirectory()) {
                     if (idx - 1 == subFiles.length - 1) {
                         levels.set(level, "   ");
-//                    levels.remove(0);
-//                    levels.remove(0);
-
                         levels.add("");
-//                System.out.print("└");
-                        //levels.set(level,"   ");
                     }
-//                Stream.generate(() -> "│  ").limit(level).forEach(System.out::print);
-//                if (level > 0 && subFiles.length > 1) {
-//                    System.out.print("├");
-//                }
-//                if (level > 0 && subFiles.length == 1) {
-//                    System.out.print("└");
-//                }
-//                if (level > 0 && subFiles.length == 0) {
-//                    System.out.print("└");
-//                }
-//                if (level == 0 && subFiles.length > 1) {
-//                    System.out.print("├");
-//                }
-//
-//                if (level == 0 && subFiles.length == 1) {
-//                    System.out.print("└");
-//                }
                     System.out.println(f.getName());
-//                idx++;
+
                     printDirContent(f, level + 1);
                 } else {
-                    if (idx - 1 == subFiles.length - 1) {
-                        // levels.remove(levels.size()-1);
-//                System.out.print("└");
-                        //levels.set(level,"   ");
-                    }
-//                Stream.generate(() -> "│  ").limit(level).forEach(System.out::print);
-//
-////                if (idx == 0 && subFiles.length == 1) {
-////                    System.out.print("└");
-////                }
-//
-//                if (idx < subFiles.length - 1) {
-//                    System.out.print("├");
-//                }
-//
-//                if (idx == subFiles.length - 1) {
-//                    System.out.print("└");
-//                }
-//                idx++;
                     System.out.println(f.getName());
                 }
             }
