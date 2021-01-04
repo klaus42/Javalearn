@@ -25,3 +25,5 @@
 ## Домашняя работа №8<br/>
 [Класс целых чисел с порядком на основе количества простых делителеи](src/com/javalearn/homework/comparators)<br/>
 [Подсчет количества элементов в коллекции, которые имеют определенное свойство](src/com/javalearn/homework/generics)
+## Консольные утилиты<br/>
+[Tree](src/com/javalearn/homework/consoleutilites/Tree.java)<br/>

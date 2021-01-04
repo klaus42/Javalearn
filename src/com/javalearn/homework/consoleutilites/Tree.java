@@ -43,9 +43,10 @@ public class Tree {
         dir = new File(folder);
 
         if (dir.isDirectory() == false) {
-            System.out.println("\""+folder+"\" не является директорией");
-            System.out.println("Выводим содержимое текущей директории");
-
+            if (folder.length()!=0) {
+                System.out.println("\"" + folder + "\" не является директорией");
+                System.out.println("Выводим содержимое текущей директории");
+            }
             Path currentRelativePath = Paths.get("");
             String absolutePath = currentRelativePath.toAbsolutePath().toString();
 
