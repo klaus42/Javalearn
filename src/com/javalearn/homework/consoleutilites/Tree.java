@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Tree {
@@ -18,34 +19,49 @@ public class Tree {
 
 
     public static void main(String[] args) {
+        List<String> argsList = Arrays.asList(args);
+        if (argsList.indexOf("-h") != -1) {
+            showSize = true;
+        }
 
-        Path currentRelativePath = Paths.get("");
-        String absolutePath = currentRelativePath.toAbsolutePath().toString();
+        if (argsList.indexOf("-a") != -1) {
+            showHidden = true;
+        }
+
+        if (argsList.indexOf("-d") != -1) {
+            showOnlyDirs = true;
+        }
+
+        Stream<String> StartsWithA = argsList.stream().filter(
+                (s) -> !s.startsWith("-"));
+
+        String folder = StartsWithA.limit(1).collect(Collectors.joining());
+        File dir;
+
+        dir = new File(folder);
+
+        if (dir.isDirectory() == false) {
+            System.out.println("\""+folder+"\" не является директорией");
+            System.out.println("Выводим содержимое текущей директории");
+
+            Path currentRelativePath = Paths.get("");
+            String absolutePath = currentRelativePath.toAbsolutePath().toString();
 
 //        absolutePath = "C:\\Users\\User\\Application Data\\";
 
-        File dir = new File(absolutePath);
+            dir = new File(absolutePath);
+        }
 
         for (String arg : args) {
 
         }
-        List<String> list = Arrays.asList(args);
-        if (list.indexOf("-h") != -1) {
-            showSize = true;
-        }
 
-        if (list.indexOf("-a") != -1) {
-            showHidden = true;
-        }
 
-        if (list.indexOf("-d") != -1) {
-            showOnlyDirs = true;
-        }
+        System.out.println(folder);
 
         levels = new ArrayList<>();
         levels.add("");
         printDirContent(dir, 0);
-
     }
 
     public static void printDirContent(File dir, int level) {
@@ -58,12 +74,10 @@ public class Tree {
         File subFiles[] = dir.listFiles(new FileFilter() {
             @Override
             public boolean accept(File file) {
-                    return (!file.isHidden()||showHidden)&&(file.isDirectory()||!showOnlyDirs);
+                return (!file.isHidden() || showHidden) && (file.isDirectory() || !showOnlyDirs);
             }
         });
         int idx = 0;
-
-
         if (level + 1 > levels.size()) {
             levels.add(level - 1, "|  ");
         }
@@ -78,8 +92,8 @@ public class Tree {
                     levels.set(level, "└--");
                 }
 
-
-                idx++;levels.forEach(System.out::print);
+                idx++;
+                levels.forEach(System.out::print);
                 if (showSize) System.out.print("[" + f.length() + "]");
 
                 System.out.println(f.getName());
@@ -91,11 +105,6 @@ public class Tree {
                     }
 //                    System.out.println(f.getName());
                     printDirContent(f, level + 1);
-                } else {
-                    if (!showOnlyDirs) {
-
-//                        System.out.println(f.getName());
-                    }
                 }
             }
         levels.remove(levels.size() - 1);
