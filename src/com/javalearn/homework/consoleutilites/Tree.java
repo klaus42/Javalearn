@@ -37,6 +37,8 @@ public class Tree {
 
         String folder = StartsWithA.limit(1).collect(Collectors.joining());
         File dir;
+        //folder = "c:\\users\\user";
+
 
         dir = new File(folder);
 
@@ -57,7 +59,8 @@ public class Tree {
         }
 
 
-        System.out.println(folder);
+        System.out.println(dir.getAbsolutePath());
+
 
         levels = new ArrayList<>();
         levels.add("");
